@@ -1,0 +1,515 @@
+@media screen and (min-width: 768px){
+.navbar.transparent {
+  background-color: transparent !important;
+  box-shadow: none !important;
+  border: none !important;
+}}
+
+.nav-link{
+    margin-left: 150px;
+}
+
+.navbar-expand-lg{
+    font-weight: bold;
+    font-size: 20px;
+
+}
+
+.navbar-brand{
+    margin-left: 100px;
+    font-size: 30px;
+    color: white;
+}
+.geo_content_header{
+    text-align: right;
+    margin-right: 20px;
+    color: black;
+}
+
+.geo_content_header:hover{
+    color: red;
+}
+
+/* Media query for screens smaller than 768px */
+@media (max-width: 768px) {
+    .nav-link{
+        margin:0;
+    }
+    .geo_content_header{
+        margin-right: 5px;
+    }
+  .navbar-brand {
+    margin-left:25px;
+      margin-right: 0;
+      font-size:20px;
+  }
+}
+
+.searchFormNew{
+    width: auto;
+}
+
+#counter{
+    color:red;
+}
+
+.welcome-text-container {
+    margin-top: 100px;
+    top: 50%;
+    left: 50%;
+    /*transform: translate(0%, 0%);*/
+}
+
+.welcome-text {
+    text-align: center;
+    color: black;
+     text-shadow: 3px 7px 17px white;
+    /*background-color: white;*/
+    /*border-radius: 50%;*/
+    /*padding: 10px;*/
+    font-size: 60px;
+    font-weight: bold;
+    /*text-shadow: 0 0 10px wheat;*/
+}
+
+@media (max-width:768px){
+    .welcome-text-container{
+        margin-top: 30px;
+        margin-bottom: 40px;
+    }
+    .welcome-text{
+        font-size: 30px;
+    }
+}
+
+.form-col_withoutmargin{
+    margin-left: 100px;
+}
+
+#container_text_with_buttons{
+    margin-top:300px !important;
+
+}
+
+.h2textHome{
+    color:black;
+}
+.h3textHome{
+    color: black;
+}
+
+.container-bg_image{
+    position: relative;
+}
+
+.bg-image {
+        position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('../img/nastol.jpg');
+    background-size: cover;
+    /*filter: blur(2px);*/
+    z-index: -1;
+    }
+
+#age,#sum_for_vocation,#sum_for_tours, #sum_for_tours_from{
+    margin-top: 7px;
+}
+
+@media (max-width: 768px){
+
+    .bg-image{
+        background-image: none;
+        background-color: white;
+
+    }
+}
+
+.form-container {
+            margin-top: 100px;
+            text-align: center;
+        }
+
+.form-container h1 {
+    margin-bottom: 30px;
+}
+
+@media (max-width:768px){
+    .form-container{
+        margin-top: 30px;
+        margin-bottom: 40px;
+    }
+    .form-container h1{
+        font-size: 30px;
+
+    }
+}
+
+.form-col{
+    flex-direction: column;
+    display: flex;
+    justify-content: revert;
+    align-content: center;
+    margin-right: 50px;
+    font-size: 20px;
+}
+
+
+
+.form-col-next{
+    flex-direction: row;
+margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+
+}
+
+@media (max-width: 768px) {
+    .form-col{
+        margin-right: 0;
+        margin-bottom: 20px;
+    }
+    .form-col-next{
+        flex-direction: column;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 20px;
+
+    }
+    .form-col-next_button{
+        margin-bottom: 20px;
+    }
+    #form-col_tour_button{
+        margin-bottom: 20px;
+    }
+}
+
+.course_currency{
+    font-size: 30px;
+    color: #e2725b;
+}
+
+
+
+.form-row label {
+    margin-right: 10px;
+}
+
+.result {
+    margin-top: 50px;
+    text-align: center;
+    color: #e2725b;
+}
+.result-2 {
+    margin-top: 25px;
+    text-align: center;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+#recommendation{
+    margin-bottom: 300px !important;
+}
+
+.result_inner{
+
+    text-align: center;
+    margin-top: 2px;
+}
+#tour_id_font{
+    font-size: 20px;
+}
+
+.result-1 {
+    margin-top: 50px;
+    text-align: center;
+    font-size: 25px;
+}
+
+.result-where_to_go{
+    margin-top: 50px;
+    text-align: center;
+    font-size: 25px;
+}
+.result-where_to_go-insert{
+    margin-top: 30px;
+    text-align: center;
+    font-size: 50px;
+    color: #e2725b;
+    font-weight: bold;
+}
+
+@media (max-width: 768px){
+    .result-where_to_go{
+        margin-top: 20px;
+    }
+}
+.result-where_to_go-insert:hover{
+    color: red;
+}
+.result-where_to_go-insert_err{
+    margin-top: 50px;
+    text-align: center;
+    font-size: 25px;
+    color: red;
+}
+
+
+.whatsapp{
+    font-size: 30px;
+    margin-bottom: 50px;
+}
+
+.geo_contact{
+    font-size: 30px;
+}
+
+.whatsapp_link{
+    color: #e2725b;
+}
+.whatsapp_link:hover{
+    color: red;
+}
+
+@media (max-width: 768px){
+    .whatsapp{
+        margin-bottom: 30px;
+    }
+    .geo_contact{
+        margin-bottom: 40px;
+    }
+}
+
+a{
+    text-decoration: none;
+}
+.geo_contact_link{
+    color: #e2725b;
+}
+.geo_contact_link:hover{
+    color: red;
+}
+
+
+.btn-primary {
+    font-size: 20px;
+    padding: 10px;
+    background-color: black;
+    color: white;
+    font-weight: bold;
+}
+
+.btn-primary:hover {
+    background-color: white;
+    color: black;
+}
+
+footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin-top: 100px;
+  }
+
+#footer_color {
+    background-color: white;
+    text-align: center;
+    padding: 10px;
+  }
+
+input[type=number]::-webkit-inner-spin-button,
+		input[type=number]::-webkit-outer-spin-button {
+			-webkit-appearance: none;
+			margin: 0;
+		}
+input[type=number] {
+			-moz-appearance: textfield;
+			/*appearance: textfield;*/
+    border-radius: 15px;
+			border: 1px solid #ccc;
+			padding: 5px;
+			font-size: 20px;
+			width: 250px;
+    height:50px;
+    text-align: center;
+
+		}
+
+#choose_currency {
+  padding: 10px;
+  font-size: 20px;
+  border-radius: 5px;
+    margin-bottom: 20px;
+    margin-top: 20px;
+  border: 1px solid #ccc;
+  background-color: #fff;
+  color: #555;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset, 0 0 8px rgba(102, 175, 233, 0.6);
+  transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+  appearance: none;
+}
+
+#choose_currency:hover,
+#choose_currency:focus {
+  border-color: #66afe9;
+  outline: none;
+  box-shadow: 0 0 8px rgba(102, 175, 233, 0.6);
+}
+
+#city_preference_tours_from{
+padding: 10px;
+    margin-top: 5px;
+  font-size: 20px;
+  border-radius: 5px;
+    margin-bottom: 20px;
+  border: 1px solid #ccc;
+  background-color: #fff;
+  color: #555;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset, 0 0 8px rgba(102, 175, 233, 0.6);
+  transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+  appearance: none;
+}
+
+#city_preference_tours_from:hover,
+#city_preference_tours_from:focus{
+    border-color: #66afe9;
+  outline: none;
+  box-shadow: 0 0 8px rgba(102, 175, 233, 0.6);
+}
+
+
+#city_preference_tours_to{
+padding: 10px;
+    margin-top: 5px;
+  font-size: 20px;
+  border-radius: 5px;
+    margin-bottom: 20px;
+  border: 1px solid #ccc;
+  background-color: #fff;
+  color: #555;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset, 0 0 8px rgba(102, 175, 233, 0.6);
+  transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+  appearance: none;
+}
+
+#city_preference_tours_to:hover,
+#city_preference_tours_to:focus{
+    border-color: #66afe9;
+  outline: none;
+  box-shadow: 0 0 8px rgba(102, 175, 233, 0.6);
+}
+
+#usdAmount{
+    color: #e2725b;
+    font-size: 30px;
+    font-weight: bold;
+}
+
+#form_container_bottom{
+    margin-bottom: 100px !important;
+}
+
+input[type="date"] {
+  padding: 10px;
+    margin-top: 5px;
+  font-size: 20px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  background-color: #fff;
+  color: #333;
+  outline: none;
+  width: 100%;
+  max-width: 300px;
+}
+
+input[type="date"]:hover,
+input[type="date"]:focus {
+  border-color: #66afe9;
+  box-shadow: 0 0 5px #66afe9;
+}
+
+#city_preference,
+#vacation_preference,
+#transport_preference,
+#family_members{
+padding: 10px;
+    margin-top: 5px;
+  font-size: 20px;
+  border-radius: 5px;
+    margin-bottom: 20px;
+  border: 1px solid #ccc;
+  background-color: #fff;
+  color: #555;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset, 0 0 8px rgba(102, 175, 233, 0.6);
+  transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+  appearance: none;
+}
+
+#city_preference:hover,
+#city_preference:focus,
+#vacation_preference:hover,
+#vacation_preference:focus,
+#transport_preference:hover,
+#transport_preference:focus,
+#family_members:hover,
+#family_members:focus{
+    border-color: #66afe9;
+  outline: none;
+  box-shadow: 0 0 8px rgba(102, 175, 233, 0.6);
+}
+
+
+
+.form-col-next-landingPage {
+  position: absolute;
+    top: 50%;
+  left:50%;
+    transform: translate(-50%, -50%);
+  width: 80%;
+  background-color: white;
+  border-radius: 50px;
+  display: flex;
+  justify-content: center;
+    flex-direction: row;
+    /*align-items: center;*/
+  padding: 20px;
+
+}
+
+#container-center_landing_page{
+position: relative;
+    margin-bottom:400px;
+    margin-top: 120px;
+}
+
+#form-row-margin{
+    margin-right: 200px;
+}
+
+@media(max-width: 768px) {
+    #container-center_landing_page{
+        margin-bottom: 0;
+    }
+    #form-row-margin{
+        margin: 0;
+        margin-top: 20px;
+    }
+    #form-row-margin_last{
+        margin-top: 20px;
+    }
+  .form-col-next-landingPage {
+      width: 100%;
+      position: relative;
+      justify-content: center;
+      align-items: center;
+    flex-direction: column;
+      background: none !important;
+      margin-top: 150px;
+  }
+}

@@ -1,0 +1,163 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <div class="form-container" id="form_container_bottom">
+	<h1>Курс валют сегодня</h1>
+
+    <div class="form-col-next">
+
+    <div class="form-col">
+    <label for="thb_rub">Курс THB к RUB</label>
+    {% if thb_rub %}
+	<div class="course_currency">{{ thb_rub }}</div>
+	{% endif %}
+    </div>
+
+    <div class="form-col">
+    <label for="usd_rub">Курс USD к RUB</label>
+        {% if usd_rub %}
+        	<div class="course_currency">{{ usd_rub }}</div>
+	{% endif %}
+    </div>
+
+    <div class="form-col">
+    <label for="eur_rub">Курс EUR к RUB</label>
+        {% if eur_rub %}
+	<div class="course_currency">{{ eur_rub }}</div>
+	{% endif %}
+    </div>
+
+     <div class="form-col">
+     <label for="try_rub">Курс TRY к RUB</label>
+        {% if try_rub %}
+	<div class="course_currency">{{ try_rub }}</div>
+	{% endif %}
+    </div>
+
+      <div class="form-col">
+      <label for="egp_rub">Курс EGP к RUB</label>
+        {% if egp_rub %}
+	<div class="course_currency">{{ egp_rub }}</div>
+	{% endif %}
+    </div>
+    </div>
+
+    <div class="form-col-next">
+
+       <div class="form-col">
+       <label for="aed_rub">Курс AED к RUB</label>
+               {% if aed_rub %}
+	<div class="course_currency">{{ aed_rub }}</div>
+	{% endif %}
+    </div>
+
+        <div class="form-col">
+        <label for="vef_rub">Курс VEF к RUB</label>
+        {% if vef_rub %}
+	<div class="course_currency">{{ vef_rub }}</div>
+	{% endif %}
+    </div>
+
+         <div class="form-col">
+         <label for="cup_rub">Курс CUP к RUB</label>
+        {% if cup_rub %}
+	<div class="course_currency">{{ cup_rub }}</div>
+	{% endif %}
+
+    </div>
+
+          <div class="form-col">
+          <label for="vnd_rub">Курс VND к RUB</label>
+
+        {% if vnd_rub %}
+	<div class="course_currency">{{ vnd_rub }}</div>
+	{% endif %}
+
+    </div>
+
+    </div>
+{#    here code for calculater#}
+    <h1 class="form-container h1">Онлайн калькулятор</h1>
+
+    <div>
+        <div class="form-col_without_margin">
+        <label for="vegaAmount">Выберите направление обмена</label>
+            <div class="form-row">
+                <select name="choose_currency" id="choose_currency" onchange="calculate()">
+                <option value="rub_usd">RUB->USD</option>
+                <option value="rub_eur">RUB->EUR</option>
+                <option value="rub_thb">RUB->THB</option>
+                <option value="rub_try">RUB->TRY</option>
+                <option value="rub_egp">RUB->EGP</option>
+                 <option value="rub_aed">RUB->AED</option>
+                    <option value="rub_vef">RUB->VEF</option>
+                <option value="rub_cup">RUB->CUP</option>
+                 <option value="rub_vnd">RUB->VND</option>
+              </select>
+            </div>
+        </div>
+
+        <div class="form-col-next" >
+         <div class="form-col">
+        <label for="vegaAmount">RUB</label>
+	<input type="number" id="vegaAmount" name="vegaAmount" oninput="calculate()" min="0" step="0.01">
+         </div>
+
+        <div class="form-col">
+            <label for="vegaAmount_to" id="vegaAmount_to_label">USD</label>
+                 <div><span id="usdAmount">0.0</span></div>
+	<script>
+		function calculate() {
+
+			let vegaAmount = document.getElementById("vegaAmount").value;
+			let chooseCurrency = document.getElementById("choose_currency").value;
+			let usdAmount;
+
+			if (chooseCurrency==="rub_vef") {
+      usdAmount = vegaAmount / {{ vef_rub }};
+      document.getElementById("vegaAmount_to_label").innerHTML = "VEF";
+    }
+			else if (chooseCurrency==="rub_vnd") {
+      usdAmount = vegaAmount / {{ vnd_rub }} ;
+      document.getElementById("vegaAmount_to_label").innerHTML = "VND";
+    }
+			else if (chooseCurrency==="rub_eur"){
+			usdAmount = vegaAmount / {{ eur_rub }} ;
+      document.getElementById("vegaAmount_to_label").innerHTML = "EUR";
+		}
+			else if (chooseCurrency==="rub_try") {
+      usdAmount = vegaAmount / {{ try_rub }} ;
+      document.getElementById("vegaAmount_to_label").innerHTML = "TRY";
+    }
+			else if (chooseCurrency==="rub_egp"){
+			usdAmount = vegaAmount / {{ egp_rub }};
+      document.getElementById("vegaAmount_to_label").innerHTML = "EGP";
+		}
+			else if (chooseCurrency==="rub_aed") {
+      usdAmount = vegaAmount / {{ aed_rub }} ;
+      document.getElementById("vegaAmount_to_label").innerHTML = "AED";
+    }
+			else if (chooseCurrency==="rub_cup"){
+			usdAmount = vegaAmount / {{ cup_rub }} ;
+      document.getElementById("vegaAmount_to_label").innerHTML = "CUP";
+		}
+			else if (chooseCurrency==="rub_thb") {
+      usdAmount = vegaAmount / {{ thb_rub }} ;
+      document.getElementById("vegaAmount_to_label").innerHTML = "THB";
+    }
+			else if (chooseCurrency==="rub_usd"){
+			usdAmount = vegaAmount / {{ usd_rub }} ;
+      document.getElementById("vegaAmount_to_label").innerHTML = "USD";
+		}
+
+		document.getElementById("usdAmount").innerHTML = usdAmount.toFixed(2);
+		}
+	</script>
+         </div>
+
+    </div>
+    </div>
+    </div>
+
+{% endblock %}
+

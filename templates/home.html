@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+<div class="container-bg_image">
+{% block content %}
+
+
+    <div class="bg-image"></div>
+    <div class="container_forLanding">
+    <div class="welcome-text-container text-center ">
+        <h1 class="welcome-text">
+            Добро пожаловать на наш сайт,<br>мы занимаемся путешествиями
+            <span id="counter"></span>
+            лет
+        </h1>
+        <script>
+    const startYear = 2006;
+    const currentYear = new Date().getFullYear();
+    const years = currentYear - startYear;
+    let counter = document.getElementById("counter");
+    let count = 0;
+
+    let interval = setInterval(() => {
+      if (count <= years) {
+          counter.innerHTML = count;
+          count++;
+      } else {
+          clearInterval(interval);
+      }
+   },25);
+</script>
+   </div>
+
+    <div id="container-center_landing_page">
+        <div class="form-col-next-landingPage">
+            <div  id="form-row-margin">
+                <a href="/where_to_go" class="btn btn-primary mt-3">Куда поехать? <i class="bi bi-lightbulb-fill"></i></a>
+            </div>
+            <div  id="form-row-margin">
+                <a href="/course" class="btn btn-primary mt-3">Посмотреть курс валют <i class="bi bi-calculator-fill"></i></a>
+            </div>
+            <div  id="form-row-margin_last">
+                <a href="/tours" class="btn btn-primary mt-3">Найти тур <i class="bi bi-search"></i></a>
+            </div>
+        </div>
+    </div>
+
+
+</div>
+    </div>
+
+
+{% endblock %}

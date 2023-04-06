@@ -1,0 +1,151 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container" style="margin-bottom: 100px">
+    <div class="form-container" >
+        <h1>Поиск туров</h1>
+        <form action="/tours" method="POST" id="my-form" >
+            <div class="form-col-next">
+
+            <div class="form-col">
+              <label for="sum_for_tours_from">Сумма тура от</label>
+                <input type="number" id="sum_for_tours_from" name="sum_for_tours_from" placeholder="0" value="0">
+          </div>
+
+          <div class="form-col">
+              <label for="sum_for_tours">Сумма тура до</label>
+                <input type="number" id="sum_for_tours" name="sum_for_tours">
+          </div>
+                <div class="form-col">
+              <label for="city_preference_tours_from">Город вылета</label>
+              <select name="city_preference_tours_from" id="city_preference_tours_from">
+                <option value="Krasnoyarsk">Красноярск</option>
+                <option value="Moscow">Москва</option>
+                <option value="Khabarovsk">Хабаровск</option>
+                <option value="Vladivostok">Владивосток</option>
+                <option value="Blagoveshensk">Благовещенск</option>
+                 <option value="Irkutsk">Иркутск</option>
+              </select>
+          </div>
+                <div class="form-col">
+              <label for="city_preference_tours_to">Страна</label>
+              <select name="city_preference_tours_to" id="city_preference_tours_to">
+                <option value="Thailand">Тайланд</option>
+                <option value="Turkish">Турция</option>
+                <option value="Egypt">Египет</option>
+                <option value="UAE">ОАЭ</option>
+                <option value="Venezuela">Венесуэла</option>
+                <option value="Cuba">Куба</option>
+                <option value="Vietnam">Вьетнам</option>
+              </select>
+          </div>
+
+                <div class="form-col">
+              <label for="date_picker">Дата вылета</label>
+              <input type="date" id="date_picker" name="date_picker" value="">
+          </div>
+                <script>
+          var today = new Date();
+          var nextWeek = new Date(today.getTime() + 7 * 24 * 60 * 60 * 1000);
+          document.getElementById('date_picker').valueAsDate = nextWeek;
+        </script>
+
+                <div class="form-col" id="form-col_tour_button">
+                    <p></p>
+                    <input class="btn btn-primary mt-3" type="submit" value="Поиск">
+                </div>
+            </div>
+    </form>
+            </div>
+
+
+
+<!-- Loading animation -->
+<div id="loading-overlay" style="display: flex; justify-content: center; align-items: center;">
+  <div class="spinner-border text-dark" role="status">
+    <span class="visually-hidden">Loading...</span>
+  </div>
+</div>
+
+<!-- Script to show/hide loading animation -->
+<script>
+  // Get a reference to the form and the loading overlay
+  const form = document.querySelector('#my-form');
+  const loadingOverlay = document.querySelector('#loading-overlay');
+
+  // When the form is submitted, show the loading overlay
+  form.addEventListener('submit', () => {
+    loadingOverlay.style.display = 'flex';
+
+  });
+
+
+  fetch('/tours', {
+    method: 'GET',
+    body: new FormData(form)
+  })
+  .then(response => {
+    // Handle the response
+    loadingOverlay.style.display = 'none';
+  })
+  .catch(error => {
+    // Handle the error
+    loadingOverlay.style.display = 'none';
+  });
+</script>
+
+
+    <div class="container" style="margin-bottom: 100px;">
+        {% if recommendation  %}
+            <div id="recommendation">
+    <p class="result-1">Это малая часть, чего мы можем предложить<br>За индивидуальным подбором тура вы можете обратится к нам лично
+        <i class="bi bi-emoji-smile-upside-down"></i></p>
+    <div id="tour_id_font">
+        {% for tour in recommendation %}
+            <div class="result-2">Tур на двоих с перелётами</div>
+                {% for inners in tour %}
+                    {% if tour.index(inners)==0 %}
+                        <div class="result_inner"><a href="https://www.google.com/search?q={{ inners }}" target="_blank" style="color: #e2725b;">{{ inners }}</a></div>
+                    {% else %}
+                        <div class="result_inner">{{ inners }}</div>
+                    {% endif %}
+                {% endfor %}<br>
+        {% endfor %}
+    <script>// Wait for the page to fully load before scrolling
+window.addEventListener('load', function() {
+  // Only scroll down on mobile devices
+  if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+    // Scroll to the bottom of the page over 1 second
+    window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
+  }
+});
+    </script></div>
+
+        {% endif %}
+    </div>
+    {% if error %}
+                <div class="result-where_to_go"></div><div class="result-where_to_go-insert_err">{{ error }}<script>// Wait for the page to fully load before scrolling
+window.addEventListener('load', function() {
+  // Only scroll down on mobile devices
+  if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+    // Scroll to the bottom of the page over 1 second
+    window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
+  }
+});
+    </script></div></div>
+    {% endif %}
+    {% if text_error %}
+        <div class="result-where_to_go"></div><div class="result-where_to_go-insert_err">
+        {{ text_error }}<script>// Wait for the page to fully load before scrolling
+window.addEventListener('load', function() {
+  // Only scroll down on mobile devices
+  if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+    // Scroll to the bottom of the page over 1 second
+    window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
+  }
+});
+    </script></div>
+    {% endif %}
+    </div>
+
+{% endblock %}

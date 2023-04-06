@@ -1,0 +1,96 @@
+{% extends "base.html" %}
+
+{% block content %}<div class="container" style="margin-bottom: 30px">
+    <div class="form-container">
+    <h1>Куда поехать?</h1>
+    <form action="/where_to_go" method="POST">
+        <div class="form-col-next">
+            <div class="form-col">
+                <label for="sum_for_vocation">Сумма путешествия</label>
+                <input type="number" id="sum_for_vocation" name="sum_for_vocation">
+            </div>
+
+            <div class="form-col">
+                <label for="city_preference">Город вылета</label>
+                <select name="city_preference" id="city_preference">
+                    <option value="city_preference_Благовещенск">Благовещенск</option>
+                    <option value="city_preference_Екатеринбург">Екатеренбург</option>
+                    <option value="city_preference_Петербург">Санкт-Петербург</option>
+                    <option value="city_preference_Хабаровск">Хабаровск</option>
+                    <option value="city_preference_Москва">Москва</option>
+                    <option value="city_preference_Владивосток">Владивосток</option>
+                    <option value="city_preference_Новосибирск">Новосибирск</option>
+                </select>
+            </div>
+
+            <div class="form-col">
+                <label for="age">Возраст</label>
+                <input type="number" id="age" name="age">
+            </div>
+
+            <div class="form-col">
+                <label for="vacation_preference">Вид отдыха</label>
+                <select name="vacation_preference" id="vacation_preference">
+                    <option value="vacation_preference_Пляжный отдых">Пляжный отдых</option>
+                    <option value="vacation_preference_Шоппинг">Шоппинг</option>
+                    <option value="vacation_preference_Архитектура">Архитектура</option>
+                </select>
+            </div>
+
+            <div class="form-col">
+                <label for="transport_preference">Транспорт</label>
+                <select name="transport_preference" id="transport_preference">
+                    <option value="transport_preference_Самолет">Самолёт</option>
+                    <option value="transport_preference_Поезд">Поезд</option>
+                    <option value="transport_preference_Морской транспорт">Морской транспорт</option>
+                </select>
+            </div>
+
+            <div class="form-col" style="margin-right:0;">
+                <label for="family_members">Попутчиков</label>
+                <select name="family_members" id="family_members">
+                    <option value="alone">Только я</option>
+                    <option value="1">Я и +1</option>
+                    <option value="2">Я и +2</option>
+                    <option value="3">Я и +3</option>
+                    <option value="4">Я и +4</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="form-col-next_button">
+        <div class="form-col-next">
+            <input class="btn btn-primary mt-3" type="submit" value="Посоветуй">
+        </div>
+            </div>
+    </form>
+    </div>
+    </div>
+
+<div class="container" style="margin-bottom: 100px;">
+    {% if recommendation and text_fror_recommendation  %}
+        <div class="result-where_to_go">{{ text_fror_recommendation }}</div><div class="result-where_to_go-insert">
+        <a href="https://www.google.com/search?q={{ recommendation }}" target="_blank" class="result-where_to_go-insert">{{ recommendation }}</a><script>// Wait for the page to fully load before scrolling
+window.addEventListener('load', function() {
+  // Only scroll down on mobile devices
+  if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+    // Scroll to the bottom of the page over 1 second
+    window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
+  }
+});
+    </script></div>
+    {% endif %}
+    {% if text_error %}
+        <div class="result-where_to_go"></div><div class="result-where_to_go-insert_err">
+        {{ text_error }}<script>// Wait for the page to fully load before scrolling
+window.addEventListener('load', function() {
+  // Only scroll down on mobile devices
+  if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+    // Scroll to the bottom of the page over 1 second
+    window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
+  }
+});
+    </script></div>
+    {% endif %}</div>
+
+{% endblock %}
